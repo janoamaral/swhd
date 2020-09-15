@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1600130609 source:c:\src\c\swhd\swhd\main.cpp
+	<tchar.h>
+	<windows.h>
+	<stdio.h>
+	"swhd.h"
+
+1600125776 c:\src\c\swhd\swhd\swhd.h
+
+1600130079 source:c:\src\c\swhd\swhd\swhd.cpp
+	<tchar.h>
+	<windows.h>
+	<stdio.h>
+	<winuser.h>
+	"swhd.h"
+
