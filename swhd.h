@@ -1,4 +1,6 @@
 void RegisterKeys();
 void UnregisterKeys();
-void RunKey(int message);
 void ReloadKeys();
+void KillDaemon();
+void RunCommand(char* command);
+void RunKey(int message);
