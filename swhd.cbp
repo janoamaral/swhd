@@ -41,8 +41,12 @@
 		<Unit filename="config.h">
 			<Option target="Debug" />
 		</Unit>
-		<Unit filename="main.cpp" />
-		<Unit filename="swhd.cpp" />
+		<Unit filename="main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="swhd.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="swhd.h" />
 		<Extensions />
 	</Project>

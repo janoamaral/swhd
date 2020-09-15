@@ -17,12 +17,26 @@ void UnregisterKeys() {
     }
 }
 
+void ReloadKeys() {
+    UnregisterKeys();
+    RegisterKeys();
+}
+
 void RunKey(int message) {
     for (int i = 0; i < sizeof(keys)/sizeof(*keys); i++  ) {
         int mMod = message&0xFFFF;
         int mKey = message>>16;
 
+        // Lookup for keys
         if ((mMod ==  keys[i].mod) && (mKey == keys[i].key)) {
+
+            if (keys[i].iFunction == FUNCTION_RELOAD) {
+                ReloadKeys();
+                break;
+            }
+
+            // Default program execution
+
             // additional information
             STARTUPINFOA si;
             PROCESS_INFORMATION pi;

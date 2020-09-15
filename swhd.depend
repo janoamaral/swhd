@@ -5,7 +5,7 @@
 	<stdio.h>
 	"swhd.h"
 
-1600125776 c:\src\c\swhd\swhd\swhd.h
+1600175647 c:\src\c\swhd\swhd\swhd.h
 
 1600130079 source:c:\src\c\swhd\swhd\swhd.cpp
 	<tchar.h>
@@ -13,4 +13,20 @@
 	<stdio.h>
 	<winuser.h>
 	"swhd.h"
+
+1600141763 source:c:\src\c\swhd\swhd\main.c
+	<tchar.h>
+	<windows.h>
+	<stdio.h>
+	"swhd.h"
+
+1600175462 source:c:\src\c\swhd\swhd\swhd.c
+	<tchar.h>
+	<windows.h>
+	<stdio.h>
+	<winuser.h>
+	"swhd.h"
+	"config.h"
+
+1600181114 c:\src\c\swhd\swhd\config.h
 
