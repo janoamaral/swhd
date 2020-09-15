@@ -3,22 +3,7 @@
 #include <stdio.h>
 #include <winuser.h>
 #include "swhd.h"
-
-typedef struct {
-    unsigned int mod;
-    unsigned int key;
-    const char* path;
-} Key;
-
-const int MOD_NOREPEAT = 0x4000;
-const int VK_A = 0x41;
-const int VK_B = 0x42;
-
-static const Key keys[] = {
-    /* modifier     key         function                             */
-    {MOD_ALT,       VK_B,      "C:\\SRC\\foobar2000\\foobar2000.exe"},
-    {MOD_ALT,       VK_DOWN,    "DOWN\n",                           }
-};
+#include "config.h"
 
 void RegisterKeys() {
     for (int i = 0; i < sizeof(keys)/sizeof(*keys); i++  ) {
