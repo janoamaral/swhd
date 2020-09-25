@@ -38,29 +38,33 @@ void RunCommand(char* command) {
     ZeroMemory(&pi, sizeof(pi));
 
     // start the program up
-    CreateProcessA
+    if ( !CreateProcessA
     (
-        command,           // the path
-        NULL,                   // Command line
+        NULL,                   // No module name (use command line)
+        command,                // Command line
         NULL,                   // Process handle not inheritable
         NULL,                   // Thread handle not inheritable
         FALSE,                  // Set handle inheritance to FALSE
-        CREATE_NEW_CONSOLE,     // Opens file in a separate console
+        0,                      // No creation flags
         NULL,                   // Use parent's environment block
         NULL,                   // Use parent's starting directory
         &si,                    // Pointer to STARTUPINFO structure
-        &pi                     // Pointer to PROCESS_INFORMATION structure
-    );
+        &pi)                    // Pointer to PROCESS_INFORMATION structure
+    )
+    {
+        printf("Cannot run");
+    }
+
     // Close process and thread handles.
     CloseHandle(pi.hProcess);
     CloseHandle(pi.hThread);
 }
 
 void RunKey(int message) {
-    for (int i = 0; i < sizeof(keys)/sizeof(*keys); i++  ) {
-        int mMod = message&0xFFFF;
-        int mKey = message>>16;
+    int mMod = message&0xFFFF;
+    int mKey = message>>16;
 
+    for (int i = 0; i < sizeof(keys)/sizeof(*keys); i++  ) {
         // Lookup for keys
         if ((mMod ==  keys[i].mod) && (mKey == keys[i].key)) {
 
