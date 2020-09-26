@@ -41,6 +41,10 @@
 		<Unit filename="config.h">
 			<Option target="Debug" />
 		</Unit>
+		<Unit filename="custfunc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="custfunc.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>

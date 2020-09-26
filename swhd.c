@@ -4,6 +4,7 @@
 #include <winuser.h>
 #include "swhd.h"
 #include "config.h"
+#include "custcntl.h"
 
 void RegisterKeys() {
     for (int i = 0; i < sizeof(keys)/sizeof(*keys); i++  ) {
@@ -27,39 +28,6 @@ void KillDaemon() {
     PostQuitMessage (0);
 }
 
-void RunCommand(char* command) {
-    // additional information
-    STARTUPINFOA si;
-    PROCESS_INFORMATION pi;
-
-    // set the size of the structures
-    ZeroMemory(&si, sizeof(si));
-    si.cb = sizeof(si);
-    ZeroMemory(&pi, sizeof(pi));
-
-    // start the program up
-    if ( !CreateProcessA
-    (
-        NULL,                   // No module name (use command line)
-        command,                // Command line
-        NULL,                   // Process handle not inheritable
-        NULL,                   // Thread handle not inheritable
-        FALSE,                  // Set handle inheritance to FALSE
-        0,                      // No creation flags
-        NULL,                   // Use parent's environment block
-        NULL,                   // Use parent's starting directory
-        &si,                    // Pointer to STARTUPINFO structure
-        &pi)                    // Pointer to PROCESS_INFORMATION structure
-    )
-    {
-        printf("Cannot run");
-    }
-
-    // Close process and thread handles.
-    CloseHandle(pi.hProcess);
-    CloseHandle(pi.hThread);
-}
-
 void RunKey(int message) {
     int mMod = message&0xFFFF;
     int mKey = message>>16;
@@ -75,6 +43,11 @@ void RunKey(int message) {
 
             if (keys[i].iFunction == FUNCTION_RELOAD) {
                 ReloadKeys();
+                break;
+            }
+
+            if (keys[i].iFunction == FUNCTION_SEARCH) {
+                SearchSelected();
                 break;
             }
 
