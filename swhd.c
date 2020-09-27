@@ -46,11 +46,6 @@ void RunKey(int message) {
                 break;
             }
 
-            if (keys[i].iFunction == FUNCTION_SEARCH) {
-                SearchSelected();
-                break;
-            }
-
             // Default program execution
             RunCommand(keys[i].path);
             break;

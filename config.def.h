@@ -15,14 +15,12 @@ const int VK_C = 0x43;
 // CUSTOM FUNCTION ID
 const unsigned int FUNCTION_RELOAD = 1;
 const unsigned int FUNCTION_RELOAD = 2;
-const unsigned int FUNCTION_SEARCH = 3;
 
 
 // HOTKEY DECLARATION
 static const Key keys[] = {
     /* modifier/s           key     internal function   program path                 */
     {MOD_WIN,               VK_F2,  NULL,               "C:\\Windows\\notepad.exe"    },
-    {MOD_WIN + MOD_ALT,     VK_C,   FUNCTION_SEARCH,    NULL                          } // Search selected text on DuckDuckGo
     {MOD_WIN,               VK_F12, FUNCTION_RELOAD,    NULL                          },
     {MOD_WIN + MOD_ALT,     VK_C,   NULL,               "C:\\Windows\\write.exe",     }
 };
